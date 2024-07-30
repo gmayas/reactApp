@@ -1,15 +1,17 @@
 import { useContext } from "react";
-import darkLogo from "/darkLogo.svg";
-import lightLogo from "/lightLogo.svg";
-import moon from "/moon.svg";
-import sun from "/sun.svg";
-import ThemeContext from "../contexts/ThemeContext.jsx";
-
+import moon from "../assets/moon.svg";
+import sun from "../assets/sun.svg";
+import toggleOn from "../assets/toggle-on.svg";
+import toggleOff from "../assets/toggle-off.svg";
+import ThemeContext from "../contexts/ThemeContext";
+//
 const Header = (props) => {
-    const [darkMode, setDarkMode] = useContext(ThemeContext);
+    //
+    const { darkMode, setDarkMode } = useContext(ThemeContext);
+    //
     return (
-        <header className={darkMode ? 'bg-primary' : 'bg-secundary'}>
-            <nav className="navbar navbar-expand-lg " data-bs-theme="dark">
+        <header>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">{props.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,27 +24,15 @@ const Header = (props) => {
                                     <span className="visually-hidden">(current)</span>
                                 </a>
                             </li>
-                            <li className="nav-item">
-                                <div className="logo-container">
-                                    <img src={darkMode ? lightLogo : darkLogo}></img>
-                                </div>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Blog</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">About</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Contact</a>
-                            </li>
-                            <li className="nav-item">
-                                <div className="icon-container"
-                                onClick={()=>setDarkMode(prev=>!prev)}>
-                                    <img src={darkMode ? sun : moon} alt="icon"></img>
-                                </div>
-                            </li>
                         </ul>
+                        <form class="d-flex">
+                            <button type="button" className={darkMode ? "btn btn-secondary my-2 my-sm-0" : "btn btn-light my-2 my-sm-0"}
+                                data-placement="top" title="Toggle theme"
+                                onClick={() => setDarkMode(prev => !prev)}>
+                                <img className="ml-4" src={darkMode ? moon : sun} alt="icon"></img>
+                                <img src={darkMode ? toggleOn : toggleOff} alt="icon"></img>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </nav>

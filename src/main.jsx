@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import './css/darkly/bootstrap.css';
-import './css/bootstrap.js';
+import './App.css'
+//import './css/slate/bootstrap.css';
+//import './css/bootstrap.js';
+import 'bootswatch/dist/slate/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

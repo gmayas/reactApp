@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import ThemeContext from "../contexts/ThemeContext.jsx"
+import ThemeContext from "../contexts/ThemeContext"
+//
 const Footer = () => {
-    const [darkMode] = useContext(ThemeContext);
+    const { darkMode } = useContext(ThemeContext);
     return (
         <footer className={darkMode ? 'bg-black' : 'bg-white'}>
-            <div className="footer-copyright text-center text-primary bg-black mt-3">© 2024 Copyright:
+            <div className={darkMode ? "footer-copyright text-center text-info mt-1"
+                : "footer-copyright text-center text-primary-emphasis border border-primary mt-1"}
+            >© 2024 Copyright:
                 <a> GMayaS C:\{">"}Desarrollo en Sistemas.</a>
             </div>
         </footer>
@@ -12,8 +15,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-
-
-
-
